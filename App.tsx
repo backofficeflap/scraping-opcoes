@@ -51,7 +51,7 @@ const App: React.FC = () => {
     try {
       const base64Data = await fileToBase64(file);
 
-      const { data, error } = await supabase.functions.invoke('process-excel', {
+      const { data, error } = await supabase.functions.invoke('scraping-opcoes', {
         body: { 
           file: base64Data, 
           fileName: file.name 
@@ -134,7 +134,8 @@ const App: React.FC = () => {
 
           <button
             onClick={startProcessing}
-            disabled={status !== 'READY' || status === 'PROCESSING'}
+            // Fix: Simplified status check to avoid redundant comparison after TS narrowing on line 137
+            disabled={status !== 'READY'}
             className={`
               px-8 py-3 font-bold rounded-xl shadow-lg transition-all transform flex items-center justify-center min-w-[160px]
               ${status === 'READY' 
@@ -183,6 +184,21 @@ const App: React.FC = () => {
               </button>
             </div>
           )}
+        </div>
+
+        {/* Nova seção de Download do Executável */}
+        <div className="mt-12 pt-8 border-t border-gray-100 w-full max-w-md text-center">
+          <p className="text-gray-500 text-sm mb-4">
+            Deseja rodar localmente no Windows?
+          </p>
+          <a 
+            href="/ScraperDesktop.exe"
+            className="inline-flex items-center px-6 py-2 bg-gray-800 hover:bg-black text-white text-sm font-semibold rounded-lg shadow-md transition-all transform hover:scale-105 active:scale-95"
+            download
+          >
+            <i className="fab fa-windows mr-2 text-blue-400"></i>
+            Baixar Versão Desktop
+          </a>
         </div>
 
         {/* Info Footer */}
