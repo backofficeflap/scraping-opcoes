@@ -49,7 +49,7 @@ const App: React.FC = () => {
     setErrorMsg(null);
 
     try {
-      const base64Data = await fileToBase64(file);
+      const base64Data = await fileToBase64(file);//o que está escrito aqui?
 
       const { data, error } = await supabase.functions.invoke('scraping-opcoes', {
         body: { 
