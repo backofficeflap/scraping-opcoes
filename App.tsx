@@ -192,7 +192,7 @@ const App: React.FC = () => {
             Deseja rodar localmente no Windows?
           </p>
           <a 
-            href="/ScraperDesktop.exe"
+            href="https://github.com/backofficeflap/scraping-opcoes/releases/download/scraping-opcoes/robo-opcoes.1.0.0.exe"
             className="inline-flex items-center px-6 py-2 bg-gray-800 hover:bg-black text-white text-sm font-semibold rounded-lg shadow-md transition-all transform hover:scale-105 active:scale-95"
             download
           >
