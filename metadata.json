@@ -1,0 +1,5 @@
+{
+  "name": "Copy of Excel Scraper Web",
+  "description": "Uma ferramenta web moderna para processamento de planilhas Excel via Supabase Edge Functions, convertida de uma aplicação Electron legada.",
+  "requestFramePermissions": []
+}
